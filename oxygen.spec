@@ -6,7 +6,7 @@
 #
 Name     : oxygen
 Version  : 5.14.3
-Release  : 7
+Release  : 8
 URL      : https://download.kde.org/stable/plasma/5.14.3/oxygen-5.14.3.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.14.3/oxygen-5.14.3.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.14.3/oxygen-5.14.3.tar.xz.sig
@@ -23,22 +23,17 @@ BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-image-dev xcb-util-keysyms-dev xcb-util-renderutil-dev xcb-util-wm-dev xcb-util-dev
 BuildRequires : frameworkintegration-dev
 BuildRequires : kdecoration-dev
+BuildRequires : kguiaddons-dev
 BuildRequires : kwayland-dev
+BuildRequires : kwindowsystem-dev
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(x11-xcb)
 BuildRequires : pkgconfig(xcb)
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : qtx11extras-dev
 
 %description
 oxygen-style-animated is a branch of trunk/KDE/kdebase/runtime/kstyles/oxygen that introduces smooth animations for the Oxygen widget style.
-
-%package abi
-Summary: abi components for the oxygen package.
-Group: Default
-
-%description abi
-abi components for the oxygen package.
-
 
 %package bin
 Summary: bin components for the oxygen package.
@@ -104,7 +99,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541533834
+export SOURCE_DATE_EPOCH=1542750995
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -112,7 +107,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1541533834
+export SOURCE_DATE_EPOCH=1542750995
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oxygen
 cp COPYING %{buildroot}/usr/share/package-licenses/oxygen/COPYING
@@ -129,13 +124,6 @@ popd
 
 %files
 %defattr(-,root,root,-)
-
-%files abi
-%defattr(-,root,root,-)
-/usr/share/abi/liboxygenstyle5.so.5.14.3.abi
-/usr/share/abi/liboxygenstyle5.so.5.abi
-/usr/share/abi/liboxygenstyleconfig5.so.5.14.3.abi
-/usr/share/abi/liboxygenstyleconfig5.so.5.abi
 
 %files bin
 %defattr(-,root,root,-)
