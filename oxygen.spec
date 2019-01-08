@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : oxygen
-Version  : 5.14.4
-Release  : 9
-URL      : https://download.kde.org/stable/plasma/5.14.4/oxygen-5.14.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.14.4/oxygen-5.14.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.14.4/oxygen-5.14.4.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 5.14.5
+Release  : 10
+URL      : https://download.kde.org/stable/plasma/5.14.5/oxygen-5.14.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.14.5/oxygen-5.14.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.14.5/oxygen-5.14.5.tar.xz.sig
+Summary  : KDE Oxygen style
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
 Requires: oxygen-bin = %{version}-%{release}
@@ -30,11 +30,7 @@ BuildRequires : pkgconfig(xcb)
 BuildRequires : qtbase-dev mesa-dev
 
 %description
-How to generate all the pngs and the SVGs and the cursor files:
-mkdir build
-cd build
-cmake ../src
-make [-j <n>] [theme-<color>|package-<color>]
+oxygen-style-animated is a branch of trunk/KDE/kdebase/runtime/kstyles/oxygen that introduces smooth animations for the Oxygen widget style.
 
 %package bin
 Summary: bin components for the oxygen package.
@@ -93,22 +89,22 @@ locales components for the oxygen package.
 
 
 %prep
-%setup -q -n oxygen-5.14.4
+%setup -q -n oxygen-5.14.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1543395112
+export SOURCE_DATE_EPOCH=1546967576
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1543395112
+export SOURCE_DATE_EPOCH=1546967576
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oxygen
 cp COPYING %{buildroot}/usr/share/package-licenses/oxygen/COPYING
@@ -649,9 +645,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/liboxygenstyle5.so.5
-/usr/lib64/liboxygenstyle5.so.5.14.4
+/usr/lib64/liboxygenstyle5.so.5.14.5
 /usr/lib64/liboxygenstyleconfig5.so.5
-/usr/lib64/liboxygenstyleconfig5.so.5.14.4
+/usr/lib64/liboxygenstyleconfig5.so.5.14.5
 /usr/lib64/qt5/plugins/kstyle_oxygen_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/oxygendecoration.so
 /usr/lib64/qt5/plugins/styles/oxygen.so
