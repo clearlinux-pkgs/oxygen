@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : oxygen
-Version  : 5.15.1
-Release  : 13
-URL      : https://download.kde.org/stable/plasma/5.15.1/oxygen-5.15.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.1/oxygen-5.15.1.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.1/oxygen-5.15.1.tar.xz.sig
+Version  : 5.15.2
+Release  : 14
+URL      : https://download.kde.org/stable/plasma/5.15.2/oxygen-5.15.2.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.2/oxygen-5.15.2.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.2/oxygen-5.15.2.tar.xz.sig
 Summary  : KDE Oxygen style
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
@@ -57,6 +57,7 @@ Requires: oxygen-lib = %{version}-%{release}
 Requires: oxygen-bin = %{version}-%{release}
 Requires: oxygen-data = %{version}-%{release}
 Provides: oxygen-devel = %{version}-%{release}
+Requires: oxygen = %{version}-%{release}
 
 %description dev
 dev components for the oxygen package.
@@ -89,14 +90,14 @@ locales components for the oxygen package.
 
 
 %prep
-%setup -q -n oxygen-5.15.1
+%setup -q -n oxygen-5.15.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550591843
+export SOURCE_DATE_EPOCH=1551203370
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -104,7 +105,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1550591843
+export SOURCE_DATE_EPOCH=1551203370
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oxygen
 cp COPYING %{buildroot}/usr/share/package-licenses/oxygen/COPYING
@@ -645,9 +646,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/liboxygenstyle5.so.5
-/usr/lib64/liboxygenstyle5.so.5.15.1
+/usr/lib64/liboxygenstyle5.so.5.15.2
 /usr/lib64/liboxygenstyleconfig5.so.5
-/usr/lib64/liboxygenstyleconfig5.so.5.15.1
+/usr/lib64/liboxygenstyleconfig5.so.5.15.2
 /usr/lib64/qt5/plugins/kstyle_oxygen_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/oxygendecoration.so
 /usr/lib64/qt5/plugins/styles/oxygen.so
