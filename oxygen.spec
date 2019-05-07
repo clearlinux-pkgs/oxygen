@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : oxygen
-Version  : 5.15.4
-Release  : 18
-URL      : https://download.kde.org/stable/plasma/5.15.4/oxygen-5.15.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.4/oxygen-5.15.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.4/oxygen-5.15.4.tar.xz.sig
+Version  : 5.15.5
+Release  : 19
+URL      : https://download.kde.org/stable/plasma/5.15.5/oxygen-5.15.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.5/oxygen-5.15.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.5/oxygen-5.15.5.tar.xz.sig
 Summary  : KDE Oxygen style
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
@@ -23,14 +23,11 @@ BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-image-dev xcb-util-keysyms-dev xcb-util-renderutil-dev xcb-util-wm-dev xcb-util-dev
 BuildRequires : frameworkintegration-dev
 BuildRequires : kdecoration-dev
-BuildRequires : kguiaddons-dev
 BuildRequires : kwayland-dev
-BuildRequires : kwindowsystem-dev
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(x11-xcb)
 BuildRequires : pkgconfig(xcb)
 BuildRequires : qtbase-dev mesa-dev
-BuildRequires : qtx11extras-dev
 
 %description
 oxygen-style-animated is a branch of trunk/KDE/kdebase/runtime/kstyles/oxygen that introduces smooth animations for the Oxygen widget style.
@@ -60,6 +57,7 @@ Requires: oxygen-lib = %{version}-%{release}
 Requires: oxygen-bin = %{version}-%{release}
 Requires: oxygen-data = %{version}-%{release}
 Provides: oxygen-devel = %{version}-%{release}
+Requires: oxygen = %{version}-%{release}
 Requires: oxygen = %{version}-%{release}
 
 %description dev
@@ -93,14 +91,14 @@ locales components for the oxygen package.
 
 
 %prep
-%setup -q -n oxygen-5.15.4
+%setup -q -n oxygen-5.15.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557043729
+export SOURCE_DATE_EPOCH=1557244629
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -115,7 +113,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557043729
+export SOURCE_DATE_EPOCH=1557244629
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oxygen
 cp COPYING %{buildroot}/usr/share/package-licenses/oxygen/COPYING
@@ -657,9 +655,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/liboxygenstyle5.so.5
-/usr/lib64/liboxygenstyle5.so.5.15.4
+/usr/lib64/liboxygenstyle5.so.5.15.5
 /usr/lib64/liboxygenstyleconfig5.so.5
-/usr/lib64/liboxygenstyleconfig5.so.5.15.4
+/usr/lib64/liboxygenstyleconfig5.so.5.15.5
 /usr/lib64/qt5/plugins/kstyle_oxygen_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/oxygendecoration.so
 /usr/lib64/qt5/plugins/styles/oxygen.so
