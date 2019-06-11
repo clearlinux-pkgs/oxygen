@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : oxygen
-Version  : 5.15.5
-Release  : 19
-URL      : https://download.kde.org/stable/plasma/5.15.5/oxygen-5.15.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.5/oxygen-5.15.5.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.5/oxygen-5.15.5.tar.xz.sig
+Version  : 5.16.0
+Release  : 20
+URL      : https://download.kde.org/stable/plasma/5.16.0/oxygen-5.16.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.0/oxygen-5.16.0.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.16.0/oxygen-5.16.0.tar.xz.sig
 Summary  : KDE Oxygen style
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
@@ -50,20 +50,6 @@ Group: Data
 data components for the oxygen package.
 
 
-%package dev
-Summary: dev components for the oxygen package.
-Group: Development
-Requires: oxygen-lib = %{version}-%{release}
-Requires: oxygen-bin = %{version}-%{release}
-Requires: oxygen-data = %{version}-%{release}
-Provides: oxygen-devel = %{version}-%{release}
-Requires: oxygen = %{version}-%{release}
-Requires: oxygen = %{version}-%{release}
-
-%description dev
-dev components for the oxygen package.
-
-
 %package lib
 Summary: lib components for the oxygen package.
 Group: Libraries
@@ -91,14 +77,14 @@ locales components for the oxygen package.
 
 
 %prep
-%setup -q -n oxygen-5.15.5
+%setup -q -n oxygen-5.16.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557244629
+export SOURCE_DATE_EPOCH=1560272794
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -113,7 +99,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557244629
+export SOURCE_DATE_EPOCH=1560272794
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oxygen
 cp COPYING %{buildroot}/usr/share/package-licenses/oxygen/COPYING
@@ -647,17 +633,12 @@ popd
 /usr/share/sounds/Oxygen-Window-Shade-Down.ogg
 /usr/share/sounds/Oxygen-Window-Shade-Up.ogg
 
-%files dev
-%defattr(-,root,root,-)
-/usr/lib64/liboxygenstyle5.so
-/usr/lib64/liboxygenstyleconfig5.so
-
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/liboxygenstyle5.so.5
-/usr/lib64/liboxygenstyle5.so.5.15.5
+/usr/lib64/liboxygenstyle5.so.5.16.0
 /usr/lib64/liboxygenstyleconfig5.so.5
-/usr/lib64/liboxygenstyleconfig5.so.5.15.5
+/usr/lib64/liboxygenstyleconfig5.so.5.16.0
 /usr/lib64/qt5/plugins/kstyle_oxygen_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/oxygendecoration.so
 /usr/lib64/qt5/plugins/styles/oxygen.so
