@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : oxygen
-Version  : 5.16.5
-Release  : 26
-URL      : https://download.kde.org/stable/plasma/5.16.5/oxygen-5.16.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.5/oxygen-5.16.5.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.5/oxygen-5.16.5.tar.xz.sig
+Version  : 5.17.0
+Release  : 27
+URL      : https://download.kde.org/stable/plasma/5.17.0/oxygen-5.17.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.0/oxygen-5.17.0.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.0/oxygen-5.17.0.tar.xz.sig
 Summary  : KDE Oxygen style
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
@@ -77,14 +77,14 @@ locales components for the oxygen package.
 
 
 %prep
-%setup -q -n oxygen-5.16.5
+%setup -q -n oxygen-5.17.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567648691
+export SOURCE_DATE_EPOCH=1571163073
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -97,18 +97,18 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1567648691
+export SOURCE_DATE_EPOCH=1571163073
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oxygen
-cp COPYING %{buildroot}/usr/share/package-licenses/oxygen/COPYING
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/oxygen/COPYING.LIB
-cp cursors/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/cursors_LICENSE
-cp cursors/src/COPYING %{buildroot}/usr/share/package-licenses/oxygen/cursors_src_COPYING
-cp cursors/src/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/cursors_src_LICENSE
+cp %{_builddir}/oxygen-5.17.0/COPYING %{buildroot}/usr/share/package-licenses/oxygen/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/oxygen-5.17.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/oxygen/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/oxygen-5.17.0/cursors/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/e7d563f52bf5295e6dba1d67ac23e9f6a160fab9
+cp %{_builddir}/oxygen-5.17.0/cursors/src/COPYING %{buildroot}/usr/share/package-licenses/oxygen/3f37878234a15694da54edf98f05ed0f5b19688f
+cp %{_builddir}/oxygen-5.17.0/cursors/src/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/8624bcdae55baeef00cd11d5dfcfa60f68710a02
 pushd clr-build
 %make_install
 popd
@@ -127,6 +127,8 @@ popd
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/color-schemes/Oxygen.colors
+/usr/share/color-schemes/OxygenCold.colors
 /usr/share/icons/KDE_Classic/cursors/00000000000000020006000e7e9ffc3f
 /usr/share/icons/KDE_Classic/cursors/00008160000006810000408080010102
 /usr/share/icons/KDE_Classic/cursors/08e8e1c95fe2fc01f976f1e063a24ccd
@@ -638,20 +640,20 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/liboxygenstyle5.so.5
-/usr/lib64/liboxygenstyle5.so.5.16.5
+/usr/lib64/liboxygenstyle5.so.5.17.0
 /usr/lib64/liboxygenstyleconfig5.so.5
-/usr/lib64/liboxygenstyleconfig5.so.5.16.5
+/usr/lib64/liboxygenstyleconfig5.so.5.17.0
 /usr/lib64/qt5/plugins/kstyle_oxygen_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/oxygendecoration.so
 /usr/lib64/qt5/plugins/styles/oxygen.so
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/oxygen/COPYING
-/usr/share/package-licenses/oxygen/COPYING.LIB
-/usr/share/package-licenses/oxygen/cursors_LICENSE
-/usr/share/package-licenses/oxygen/cursors_src_COPYING
-/usr/share/package-licenses/oxygen/cursors_src_LICENSE
+/usr/share/package-licenses/oxygen/01a6b4bf79aca9b556822601186afab86e8c4fbf
+/usr/share/package-licenses/oxygen/3f37878234a15694da54edf98f05ed0f5b19688f
+/usr/share/package-licenses/oxygen/7c203dee3a03037da436df03c4b25b659c073976
+/usr/share/package-licenses/oxygen/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+/usr/share/package-licenses/oxygen/e7d563f52bf5295e6dba1d67ac23e9f6a160fab9
 
 %files locales -f oxygen_style_config.lang -f oxygen_style_demo.lang -f liboxygenstyleconfig.lang -f oxygen_kdecoration.lang
 %defattr(-,root,root,-)
