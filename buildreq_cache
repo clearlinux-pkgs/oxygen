@@ -1,8 +1,4 @@
-5.17.5
+5.18.0
 frameworkintegration-dev
 kdecoration-dev
-kguiaddons-dev
 kwayland-dev
-kwindowsystem-dev
-qtx11extras-dev
-util-linux
