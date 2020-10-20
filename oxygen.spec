@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : oxygen
-Version  : 5.20.0
-Release  : 44
-URL      : https://download.kde.org/stable/plasma/5.20.0/oxygen-5.20.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.20.0/oxygen-5.20.0.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.20.0/oxygen-5.20.0.tar.xz.sig
+Version  : 5.20.1
+Release  : 45
+URL      : https://download.kde.org/stable/plasma/5.20.1/oxygen-5.20.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.20.1/oxygen-5.20.1.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.20.1/oxygen-5.20.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
@@ -82,15 +82,15 @@ locales components for the oxygen package.
 
 
 %prep
-%setup -q -n oxygen-5.20.0
-cd %{_builddir}/oxygen-5.20.0
+%setup -q -n oxygen-5.20.1
+cd %{_builddir}/oxygen-5.20.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1602705340
+export SOURCE_DATE_EPOCH=1603215893
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -106,14 +106,14 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1602705340
+export SOURCE_DATE_EPOCH=1603215893
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oxygen
-cp %{_builddir}/oxygen-5.20.0/COPYING %{buildroot}/usr/share/package-licenses/oxygen/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/oxygen-5.20.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/oxygen/01a6b4bf79aca9b556822601186afab86e8c4fbf
-cp %{_builddir}/oxygen-5.20.0/cursors/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/e7d563f52bf5295e6dba1d67ac23e9f6a160fab9
-cp %{_builddir}/oxygen-5.20.0/cursors/src/COPYING %{buildroot}/usr/share/package-licenses/oxygen/3f37878234a15694da54edf98f05ed0f5b19688f
-cp %{_builddir}/oxygen-5.20.0/cursors/src/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/oxygen-5.20.1/COPYING %{buildroot}/usr/share/package-licenses/oxygen/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/oxygen-5.20.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/oxygen/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/oxygen-5.20.1/cursors/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/e7d563f52bf5295e6dba1d67ac23e9f6a160fab9
+cp %{_builddir}/oxygen-5.20.1/cursors/src/COPYING %{buildroot}/usr/share/package-licenses/oxygen/3f37878234a15694da54edf98f05ed0f5b19688f
+cp %{_builddir}/oxygen-5.20.1/cursors/src/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/8624bcdae55baeef00cd11d5dfcfa60f68710a02
 pushd clr-build
 %make_install
 popd
@@ -172,7 +172,11 @@ popd
 /usr/share/icons/KDE_Classic/cursors/left_side
 /usr/share/icons/KDE_Classic/cursors/move
 /usr/share/icons/KDE_Classic/cursors/n-resize
+/usr/share/icons/KDE_Classic/cursors/ne-resize
+/usr/share/icons/KDE_Classic/cursors/nesw-resize
 /usr/share/icons/KDE_Classic/cursors/not-allowed
+/usr/share/icons/KDE_Classic/cursors/nw-resize
+/usr/share/icons/KDE_Classic/cursors/nwse-resize
 /usr/share/icons/KDE_Classic/cursors/openhand
 /usr/share/icons/KDE_Classic/cursors/pirate
 /usr/share/icons/KDE_Classic/cursors/pointer
@@ -185,6 +189,7 @@ popd
 /usr/share/icons/KDE_Classic/cursors/s-resize
 /usr/share/icons/KDE_Classic/cursors/sb_h_double_arrow
 /usr/share/icons/KDE_Classic/cursors/sb_v_double_arrow
+/usr/share/icons/KDE_Classic/cursors/se-resize
 /usr/share/icons/KDE_Classic/cursors/size_all
 /usr/share/icons/KDE_Classic/cursors/size_bdiag
 /usr/share/icons/KDE_Classic/cursors/size_fdiag
@@ -192,6 +197,7 @@ popd
 /usr/share/icons/KDE_Classic/cursors/size_ver
 /usr/share/icons/KDE_Classic/cursors/split_h
 /usr/share/icons/KDE_Classic/cursors/split_v
+/usr/share/icons/KDE_Classic/cursors/sw-resize
 /usr/share/icons/KDE_Classic/cursors/text
 /usr/share/icons/KDE_Classic/cursors/top_left_corner
 /usr/share/icons/KDE_Classic/cursors/top_right_corner
@@ -251,7 +257,11 @@ popd
 /usr/share/icons/Oxygen_Black/cursors/link
 /usr/share/icons/Oxygen_Black/cursors/move
 /usr/share/icons/Oxygen_Black/cursors/n-resize
+/usr/share/icons/Oxygen_Black/cursors/ne-resize
+/usr/share/icons/Oxygen_Black/cursors/nesw-resize
 /usr/share/icons/Oxygen_Black/cursors/not-allowed
+/usr/share/icons/Oxygen_Black/cursors/nw-resize
+/usr/share/icons/Oxygen_Black/cursors/nwse-resize
 /usr/share/icons/Oxygen_Black/cursors/openhand
 /usr/share/icons/Oxygen_Black/cursors/pencil
 /usr/share/icons/Oxygen_Black/cursors/pirate
@@ -264,6 +274,7 @@ popd
 /usr/share/icons/Oxygen_Black/cursors/s-resize
 /usr/share/icons/Oxygen_Black/cursors/sb_h_double_arrow
 /usr/share/icons/Oxygen_Black/cursors/sb_v_double_arrow
+/usr/share/icons/Oxygen_Black/cursors/se-resize
 /usr/share/icons/Oxygen_Black/cursors/size_all
 /usr/share/icons/Oxygen_Black/cursors/size_bdiag
 /usr/share/icons/Oxygen_Black/cursors/size_fdiag
@@ -271,6 +282,7 @@ popd
 /usr/share/icons/Oxygen_Black/cursors/size_ver
 /usr/share/icons/Oxygen_Black/cursors/split_h
 /usr/share/icons/Oxygen_Black/cursors/split_v
+/usr/share/icons/Oxygen_Black/cursors/sw-resize
 /usr/share/icons/Oxygen_Black/cursors/text
 /usr/share/icons/Oxygen_Black/cursors/up_arrow
 /usr/share/icons/Oxygen_Black/cursors/v_double_arrow
@@ -326,7 +338,11 @@ popd
 /usr/share/icons/Oxygen_Blue/cursors/link
 /usr/share/icons/Oxygen_Blue/cursors/move
 /usr/share/icons/Oxygen_Blue/cursors/n-resize
+/usr/share/icons/Oxygen_Blue/cursors/ne-resize
+/usr/share/icons/Oxygen_Blue/cursors/nesw-resize
 /usr/share/icons/Oxygen_Blue/cursors/not-allowed
+/usr/share/icons/Oxygen_Blue/cursors/nw-resize
+/usr/share/icons/Oxygen_Blue/cursors/nwse-resize
 /usr/share/icons/Oxygen_Blue/cursors/openhand
 /usr/share/icons/Oxygen_Blue/cursors/pencil
 /usr/share/icons/Oxygen_Blue/cursors/pirate
@@ -339,6 +355,7 @@ popd
 /usr/share/icons/Oxygen_Blue/cursors/s-resize
 /usr/share/icons/Oxygen_Blue/cursors/sb_h_double_arrow
 /usr/share/icons/Oxygen_Blue/cursors/sb_v_double_arrow
+/usr/share/icons/Oxygen_Blue/cursors/se-resize
 /usr/share/icons/Oxygen_Blue/cursors/size_all
 /usr/share/icons/Oxygen_Blue/cursors/size_bdiag
 /usr/share/icons/Oxygen_Blue/cursors/size_fdiag
@@ -346,6 +363,7 @@ popd
 /usr/share/icons/Oxygen_Blue/cursors/size_ver
 /usr/share/icons/Oxygen_Blue/cursors/split_h
 /usr/share/icons/Oxygen_Blue/cursors/split_v
+/usr/share/icons/Oxygen_Blue/cursors/sw-resize
 /usr/share/icons/Oxygen_Blue/cursors/text
 /usr/share/icons/Oxygen_Blue/cursors/up_arrow
 /usr/share/icons/Oxygen_Blue/cursors/v_double_arrow
@@ -401,7 +419,11 @@ popd
 /usr/share/icons/Oxygen_White/cursors/link
 /usr/share/icons/Oxygen_White/cursors/move
 /usr/share/icons/Oxygen_White/cursors/n-resize
+/usr/share/icons/Oxygen_White/cursors/ne-resize
+/usr/share/icons/Oxygen_White/cursors/nesw-resize
 /usr/share/icons/Oxygen_White/cursors/not-allowed
+/usr/share/icons/Oxygen_White/cursors/nw-resize
+/usr/share/icons/Oxygen_White/cursors/nwse-resize
 /usr/share/icons/Oxygen_White/cursors/openhand
 /usr/share/icons/Oxygen_White/cursors/pencil
 /usr/share/icons/Oxygen_White/cursors/pirate
@@ -414,6 +436,7 @@ popd
 /usr/share/icons/Oxygen_White/cursors/s-resize
 /usr/share/icons/Oxygen_White/cursors/sb_h_double_arrow
 /usr/share/icons/Oxygen_White/cursors/sb_v_double_arrow
+/usr/share/icons/Oxygen_White/cursors/se-resize
 /usr/share/icons/Oxygen_White/cursors/size_all
 /usr/share/icons/Oxygen_White/cursors/size_bdiag
 /usr/share/icons/Oxygen_White/cursors/size_fdiag
@@ -421,6 +444,7 @@ popd
 /usr/share/icons/Oxygen_White/cursors/size_ver
 /usr/share/icons/Oxygen_White/cursors/split_h
 /usr/share/icons/Oxygen_White/cursors/split_v
+/usr/share/icons/Oxygen_White/cursors/sw-resize
 /usr/share/icons/Oxygen_White/cursors/text
 /usr/share/icons/Oxygen_White/cursors/up_arrow
 /usr/share/icons/Oxygen_White/cursors/v_double_arrow
@@ -476,7 +500,11 @@ popd
 /usr/share/icons/Oxygen_Yellow/cursors/link
 /usr/share/icons/Oxygen_Yellow/cursors/move
 /usr/share/icons/Oxygen_Yellow/cursors/n-resize
+/usr/share/icons/Oxygen_Yellow/cursors/ne-resize
+/usr/share/icons/Oxygen_Yellow/cursors/nesw-resize
 /usr/share/icons/Oxygen_Yellow/cursors/not-allowed
+/usr/share/icons/Oxygen_Yellow/cursors/nw-resize
+/usr/share/icons/Oxygen_Yellow/cursors/nwse-resize
 /usr/share/icons/Oxygen_Yellow/cursors/openhand
 /usr/share/icons/Oxygen_Yellow/cursors/pencil
 /usr/share/icons/Oxygen_Yellow/cursors/pirate
@@ -489,6 +517,7 @@ popd
 /usr/share/icons/Oxygen_Yellow/cursors/s-resize
 /usr/share/icons/Oxygen_Yellow/cursors/sb_h_double_arrow
 /usr/share/icons/Oxygen_Yellow/cursors/sb_v_double_arrow
+/usr/share/icons/Oxygen_Yellow/cursors/se-resize
 /usr/share/icons/Oxygen_Yellow/cursors/size_all
 /usr/share/icons/Oxygen_Yellow/cursors/size_bdiag
 /usr/share/icons/Oxygen_Yellow/cursors/size_fdiag
@@ -496,6 +525,7 @@ popd
 /usr/share/icons/Oxygen_Yellow/cursors/size_ver
 /usr/share/icons/Oxygen_Yellow/cursors/split_h
 /usr/share/icons/Oxygen_Yellow/cursors/split_v
+/usr/share/icons/Oxygen_Yellow/cursors/sw-resize
 /usr/share/icons/Oxygen_Yellow/cursors/text
 /usr/share/icons/Oxygen_Yellow/cursors/up_arrow
 /usr/share/icons/Oxygen_Yellow/cursors/v_double_arrow
@@ -551,7 +581,11 @@ popd
 /usr/share/icons/Oxygen_Zion/cursors/link
 /usr/share/icons/Oxygen_Zion/cursors/move
 /usr/share/icons/Oxygen_Zion/cursors/n-resize
+/usr/share/icons/Oxygen_Zion/cursors/ne-resize
+/usr/share/icons/Oxygen_Zion/cursors/nesw-resize
 /usr/share/icons/Oxygen_Zion/cursors/not-allowed
+/usr/share/icons/Oxygen_Zion/cursors/nw-resize
+/usr/share/icons/Oxygen_Zion/cursors/nwse-resize
 /usr/share/icons/Oxygen_Zion/cursors/openhand
 /usr/share/icons/Oxygen_Zion/cursors/pencil
 /usr/share/icons/Oxygen_Zion/cursors/pirate
@@ -564,6 +598,7 @@ popd
 /usr/share/icons/Oxygen_Zion/cursors/s-resize
 /usr/share/icons/Oxygen_Zion/cursors/sb_h_double_arrow
 /usr/share/icons/Oxygen_Zion/cursors/sb_v_double_arrow
+/usr/share/icons/Oxygen_Zion/cursors/se-resize
 /usr/share/icons/Oxygen_Zion/cursors/size_all
 /usr/share/icons/Oxygen_Zion/cursors/size_bdiag
 /usr/share/icons/Oxygen_Zion/cursors/size_fdiag
@@ -571,6 +606,7 @@ popd
 /usr/share/icons/Oxygen_Zion/cursors/size_ver
 /usr/share/icons/Oxygen_Zion/cursors/split_h
 /usr/share/icons/Oxygen_Zion/cursors/split_v
+/usr/share/icons/Oxygen_Zion/cursors/sw-resize
 /usr/share/icons/Oxygen_Zion/cursors/text
 /usr/share/icons/Oxygen_Zion/cursors/up_arrow
 /usr/share/icons/Oxygen_Zion/cursors/v_double_arrow
@@ -645,9 +681,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/liboxygenstyle5.so.5
-/usr/lib64/liboxygenstyle5.so.5.20.0
+/usr/lib64/liboxygenstyle5.so.5.20.1
 /usr/lib64/liboxygenstyleconfig5.so.5
-/usr/lib64/liboxygenstyleconfig5.so.5.20.0
+/usr/lib64/liboxygenstyleconfig5.so.5.20.1
 /usr/lib64/qt5/plugins/kstyle_oxygen_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/oxygendecoration.so
 /usr/lib64/qt5/plugins/styles/oxygen.so
