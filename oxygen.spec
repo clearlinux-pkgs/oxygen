@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : oxygen
-Version  : 5.22.1
-Release  : 52
-URL      : https://download.kde.org/stable/plasma/5.22.1/oxygen-5.22.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.22.1/oxygen-5.22.1.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.22.1/oxygen-5.22.1.tar.xz.sig
+Version  : 5.22.5
+Release  : 53
+URL      : https://download.kde.org/stable/plasma/5.22.5/oxygen-5.22.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.22.5/oxygen-5.22.5.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.22.5/oxygen-5.22.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
@@ -31,11 +31,7 @@ BuildRequires : kwayland-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
-How to generate all the pngs and the SVGs and the cursor files:
-mkdir build
-cd build
-cmake ../src
-make [-j <n>] [theme-<color>|package-<color>]
+oxygen-style-animated is a branch of trunk/KDE/kdebase/runtime/kstyles/oxygen that introduces smooth animations for the Oxygen widget style.
 
 %package bin
 Summary: bin components for the oxygen package.
@@ -82,38 +78,38 @@ locales components for the oxygen package.
 
 
 %prep
-%setup -q -n oxygen-5.22.1
-cd %{_builddir}/oxygen-5.22.1
+%setup -q -n oxygen-5.22.5
+cd %{_builddir}/oxygen-5.22.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623812428
+export SOURCE_DATE_EPOCH=1630962280
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623812428
+export SOURCE_DATE_EPOCH=1630962280
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oxygen
-cp %{_builddir}/oxygen-5.22.1/COPYING %{buildroot}/usr/share/package-licenses/oxygen/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/oxygen-5.22.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/oxygen/01a6b4bf79aca9b556822601186afab86e8c4fbf
-cp %{_builddir}/oxygen-5.22.1/cursors/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/e7d563f52bf5295e6dba1d67ac23e9f6a160fab9
-cp %{_builddir}/oxygen-5.22.1/cursors/src/COPYING %{buildroot}/usr/share/package-licenses/oxygen/3f37878234a15694da54edf98f05ed0f5b19688f
-cp %{_builddir}/oxygen-5.22.1/cursors/src/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/oxygen-5.22.5/COPYING %{buildroot}/usr/share/package-licenses/oxygen/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/oxygen-5.22.5/COPYING.LIB %{buildroot}/usr/share/package-licenses/oxygen/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/oxygen-5.22.5/cursors/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/e7d563f52bf5295e6dba1d67ac23e9f6a160fab9
+cp %{_builddir}/oxygen-5.22.5/cursors/src/COPYING %{buildroot}/usr/share/package-licenses/oxygen/3f37878234a15694da54edf98f05ed0f5b19688f
+cp %{_builddir}/oxygen-5.22.5/cursors/src/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/8624bcdae55baeef00cd11d5dfcfa60f68710a02
 pushd clr-build
 %make_install
 popd
@@ -681,9 +677,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/liboxygenstyle5.so.5
-/usr/lib64/liboxygenstyle5.so.5.22.1
+/usr/lib64/liboxygenstyle5.so.5.22.5
 /usr/lib64/liboxygenstyleconfig5.so.5
-/usr/lib64/liboxygenstyleconfig5.so.5.22.1
+/usr/lib64/liboxygenstyleconfig5.so.5.22.5
 /usr/lib64/qt5/plugins/kstyle_oxygen_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/oxygendecoration.so
 /usr/lib64/qt5/plugins/styles/oxygen.so
