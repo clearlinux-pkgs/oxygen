@@ -4,7 +4,7 @@
 #
 Name     : oxygen
 Version  : 5.23.0
-Release  : 54
+Release  : 55
 URL      : https://download.kde.org/stable/plasma/5.23.0/oxygen-5.23.0.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.23.0/oxygen-5.23.0.tar.xz
 Summary  : No detailed summary available
