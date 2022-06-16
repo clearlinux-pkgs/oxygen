@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : oxygen
-Version  : 5.24.5
-Release  : 66
-URL      : https://download.kde.org/stable/plasma/5.24.5/oxygen-5.24.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.24.5/oxygen-5.24.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.24.5/oxygen-5.24.5.tar.xz.sig
+Version  : 5.25.0
+Release  : 67
+URL      : https://download.kde.org/stable/plasma/5.25.0/oxygen-5.25.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.25.0/oxygen-5.25.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.25.0/oxygen-5.25.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -31,7 +31,11 @@ BuildRequires : kwayland-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
-oxygen-style-animated is a branch of trunk/KDE/kdebase/runtime/kstyles/oxygen that introduces smooth animations for the Oxygen widget style.
+How to generate all the pngs and the SVGs and the cursor files:
+mkdir build
+cd build
+cmake ../src
+make [-j <n>] [theme-<color>|package-<color>]
 
 %package bin
 Summary: bin components for the oxygen package.
@@ -78,15 +82,15 @@ locales components for the oxygen package.
 
 
 %prep
-%setup -q -n oxygen-5.24.5
-cd %{_builddir}/oxygen-5.24.5
+%setup -q -n oxygen-5.25.0
+cd %{_builddir}/oxygen-5.25.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1651621329
+export SOURCE_DATE_EPOCH=1655412449
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -102,23 +106,23 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1651621329
+export SOURCE_DATE_EPOCH=1655412449
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oxygen
-cp %{_builddir}/oxygen-5.24.5/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/oxygen/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/oxygen-5.24.5/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/oxygen/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/oxygen-5.24.5/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/oxygen/2123756e0b1fc8243547235a33c0fcabfe3b9a51
-cp %{_builddir}/oxygen-5.24.5/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/oxygen/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/oxygen-5.24.5/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/oxygen/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/oxygen-5.24.5/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/oxygen/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/oxygen-5.24.5/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/oxygen/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/oxygen-5.24.5/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/oxygen/19d98e1b6f8ef12849ea4012a052d3907f336c91
-cp %{_builddir}/oxygen-5.24.5/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/oxygen/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/oxygen-5.24.5/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/oxygen/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/oxygen-5.24.5/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/oxygen/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/oxygen-5.24.5/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/oxygen/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/oxygen-5.24.5/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/oxygen/81e12d0c07782abcf558af7aa19846e3e2606a70
-cp %{_builddir}/oxygen-5.24.5/cursors/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/e7d563f52bf5295e6dba1d67ac23e9f6a160fab9
+cp %{_builddir}/oxygen-5.25.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/oxygen/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/oxygen-5.25.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/oxygen/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/oxygen-5.25.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/oxygen/2123756e0b1fc8243547235a33c0fcabfe3b9a51
+cp %{_builddir}/oxygen-5.25.0/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/oxygen/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+cp %{_builddir}/oxygen-5.25.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/oxygen/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/oxygen-5.25.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/oxygen/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/oxygen-5.25.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/oxygen/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/oxygen-5.25.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/oxygen/19d98e1b6f8ef12849ea4012a052d3907f336c91
+cp %{_builddir}/oxygen-5.25.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/oxygen/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/oxygen-5.25.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/oxygen/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/oxygen-5.25.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/oxygen/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/oxygen-5.25.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/oxygen/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/oxygen-5.25.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/oxygen/81e12d0c07782abcf558af7aa19846e3e2606a70
+cp %{_builddir}/oxygen-5.25.0/cursors/LICENSE %{buildroot}/usr/share/package-licenses/oxygen/e7d563f52bf5295e6dba1d67ac23e9f6a160fab9
 pushd clr-build
 %make_install
 popd
@@ -633,63 +637,13 @@ popd
 /usr/share/plasma/look-and-feel/org.kde.oxygen/contents/splash/images/kde.png
 /usr/share/plasma/look-and-feel/org.kde.oxygen/contents/splash/images/rectangle.png
 /usr/share/plasma/look-and-feel/org.kde.oxygen/metadata.desktop
-/usr/share/sounds/Oxygen-Im-Cant-Connect.ogg
-/usr/share/sounds/Oxygen-Im-Connection-Lost.ogg
-/usr/share/sounds/Oxygen-Im-Contact-In.ogg
-/usr/share/sounds/Oxygen-Im-Contact-Out.ogg
-/usr/share/sounds/Oxygen-Im-Error-On-Connection.ogg
-/usr/share/sounds/Oxygen-Im-Highlight-Msg.ogg
-/usr/share/sounds/Oxygen-Im-Internal-Error.ogg
-/usr/share/sounds/Oxygen-Im-Irc-Event.ogg
-/usr/share/sounds/Oxygen-Im-Low-Priority-Message.ogg
-/usr/share/sounds/Oxygen-Im-Message-In.ogg
-/usr/share/sounds/Oxygen-Im-Message-Out.ogg
-/usr/share/sounds/Oxygen-Im-Network-Problems.ogg
-/usr/share/sounds/Oxygen-Im-New-Mail.ogg
-/usr/share/sounds/Oxygen-Im-Nudge.ogg
-/usr/share/sounds/Oxygen-Im-Phone-Ring.ogg
-/usr/share/sounds/Oxygen-Im-Sms.ogg
-/usr/share/sounds/Oxygen-Im-User-Auth.ogg
-/usr/share/sounds/Oxygen-K3B-Finish-Error.ogg
-/usr/share/sounds/Oxygen-K3B-Finish-Success.ogg
-/usr/share/sounds/Oxygen-K3B-Insert-Medium.ogg
-/usr/share/sounds/Oxygen-Sys-App-Error-Critical.ogg
-/usr/share/sounds/Oxygen-Sys-App-Error-Serious-Very.ogg
-/usr/share/sounds/Oxygen-Sys-App-Error-Serious.ogg
-/usr/share/sounds/Oxygen-Sys-App-Error.ogg
-/usr/share/sounds/Oxygen-Sys-App-Message.ogg
-/usr/share/sounds/Oxygen-Sys-App-Negative.ogg
-/usr/share/sounds/Oxygen-Sys-App-Positive.ogg
-/usr/share/sounds/Oxygen-Sys-Error-Printing.ogg
-/usr/share/sounds/Oxygen-Sys-File-Open-Foes.ogg
-/usr/share/sounds/Oxygen-Sys-List-End.ogg
-/usr/share/sounds/Oxygen-Sys-List-Match-Multiple.ogg
-/usr/share/sounds/Oxygen-Sys-List-Match-No.ogg
-/usr/share/sounds/Oxygen-Sys-Log-In-Long.ogg
-/usr/share/sounds/Oxygen-Sys-Log-In-Short.ogg
-/usr/share/sounds/Oxygen-Sys-Log-In.ogg
-/usr/share/sounds/Oxygen-Sys-Log-Out-Long.ogg
-/usr/share/sounds/Oxygen-Sys-Log-Out.ogg
-/usr/share/sounds/Oxygen-Sys-Question.ogg
-/usr/share/sounds/Oxygen-Sys-Special.ogg
-/usr/share/sounds/Oxygen-Sys-Trash-Emptied.ogg
-/usr/share/sounds/Oxygen-Sys-Warning.ogg
-/usr/share/sounds/Oxygen-Window-All-Desktops-Not.ogg
-/usr/share/sounds/Oxygen-Window-All-Desktops.ogg
-/usr/share/sounds/Oxygen-Window-Close.ogg
-/usr/share/sounds/Oxygen-Window-Maximize.ogg
-/usr/share/sounds/Oxygen-Window-Minimize.ogg
-/usr/share/sounds/Oxygen-Window-Move-Stop.ogg
-/usr/share/sounds/Oxygen-Window-Move.ogg
-/usr/share/sounds/Oxygen-Window-Shade-Down.ogg
-/usr/share/sounds/Oxygen-Window-Shade-Up.ogg
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/liboxygenstyle5.so.5
-/usr/lib64/liboxygenstyle5.so.5.24.5
+/usr/lib64/liboxygenstyle5.so.5.25.0
 /usr/lib64/liboxygenstyleconfig5.so.5
-/usr/lib64/liboxygenstyleconfig5.so.5.24.5
+/usr/lib64/liboxygenstyleconfig5.so.5.25.0
 /usr/lib64/qt5/plugins/kstyle_oxygen_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/oxygendecoration.so
 /usr/lib64/qt5/plugins/styles/oxygen.so
