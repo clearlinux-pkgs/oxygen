@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : oxygen
-Version  : 5.25.5
-Release  : 72
-URL      : https://download.kde.org/stable/plasma/5.25.5/oxygen-5.25.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.25.5/oxygen-5.25.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.25.5/oxygen-5.25.5.tar.xz.sig
+Version  : 5.26.0
+Release  : 73
+URL      : https://download.kde.org/stable/plasma/5.26.0/oxygen-5.26.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.26.0/oxygen-5.26.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.26.0/oxygen-5.26.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
+License  : CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
 Requires: oxygen-bin = %{version}-%{release}
 Requires: oxygen-data = %{version}-%{release}
 Requires: oxygen-lib = %{version}-%{release}
@@ -78,15 +78,15 @@ locales components for the oxygen package.
 
 
 %prep
-%setup -q -n oxygen-5.25.5
-cd %{_builddir}/oxygen-5.25.5
+%setup -q -n oxygen-5.26.0
+cd %{_builddir}/oxygen-5.26.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662502802
+export SOURCE_DATE_EPOCH=1665724314
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -102,9 +102,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1662502802
+export SOURCE_DATE_EPOCH=1665724314
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oxygen
+cp %{_builddir}/oxygen-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/oxygen/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
 cp %{_builddir}/oxygen-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/oxygen/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
 cp %{_builddir}/oxygen-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/oxygen/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
 cp %{_builddir}/oxygen-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/oxygen/2123756e0b1fc8243547235a33c0fcabfe3b9a51 || :
@@ -637,9 +638,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/liboxygenstyle5.so.5
-/usr/lib64/liboxygenstyle5.so.5.25.5
+/usr/lib64/liboxygenstyle5.so.5.26.0
 /usr/lib64/liboxygenstyleconfig5.so.5
-/usr/lib64/liboxygenstyleconfig5.so.5.25.5
+/usr/lib64/liboxygenstyleconfig5.so.5.26.0
 /usr/lib64/qt5/plugins/kstyle_oxygen_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/oxygendecoration.so
 /usr/lib64/qt5/plugins/styles/oxygen.so
@@ -652,6 +653,7 @@ popd
 /usr/share/package-licenses/oxygen/7d9831e05094ce723947d729c2a46a09d6e90275
 /usr/share/package-licenses/oxygen/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
 /usr/share/package-licenses/oxygen/81e12d0c07782abcf558af7aa19846e3e2606a70
+/usr/share/package-licenses/oxygen/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 /usr/share/package-licenses/oxygen/a4c60b3fefda228cd7439d3565df043192fef137
 /usr/share/package-licenses/oxygen/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
 /usr/share/package-licenses/oxygen/e458941548e0864907e654fa2e192844ae90fc32
