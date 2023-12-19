@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : oxygen
-Version  : 5.27.9
-Release  : 91
-URL      : https://download.kde.org/stable/plasma/5.27.9/oxygen-5.27.9.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.27.9/oxygen-5.27.9.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.27.9/oxygen-5.27.9.tar.xz.sig
+Version  : 5.27.10
+Release  : 92
+URL      : https://download.kde.org/stable/plasma/5.27.10/oxygen-5.27.10.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.10/oxygen-5.27.10.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.10/oxygen-5.27.10.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -87,15 +87,15 @@ locales components for the oxygen package.
 
 
 %prep
-%setup -q -n oxygen-5.27.9
-cd %{_builddir}/oxygen-5.27.9
+%setup -q -n oxygen-5.27.10
+cd %{_builddir}/oxygen-5.27.10
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1702043700
+export SOURCE_DATE_EPOCH=1702977175
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -154,7 +154,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1702043700
+export SOURCE_DATE_EPOCH=1702977175
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oxygen
 cp %{_builddir}/oxygen-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/oxygen/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -695,15 +695,15 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/liboxygenstyle5.so.5.27.9
-/V3/usr/lib64/liboxygenstyleconfig5.so.5.27.9
+/V3/usr/lib64/liboxygenstyle5.so.5.27.10
+/V3/usr/lib64/liboxygenstyleconfig5.so.5.27.10
 /V3/usr/lib64/qt5/plugins/kstyle_oxygen_config.so
 /V3/usr/lib64/qt5/plugins/org.kde.kdecoration2/oxygendecoration.so
 /V3/usr/lib64/qt5/plugins/styles/oxygen.so
 /usr/lib64/liboxygenstyle5.so.5
-/usr/lib64/liboxygenstyle5.so.5.27.9
+/usr/lib64/liboxygenstyle5.so.5.27.10
 /usr/lib64/liboxygenstyleconfig5.so.5
-/usr/lib64/liboxygenstyleconfig5.so.5.27.9
+/usr/lib64/liboxygenstyleconfig5.so.5.27.10
 /usr/lib64/qt5/plugins/kstyle_oxygen_config.so
 /usr/lib64/qt5/plugins/org.kde.kdecoration2/oxygendecoration.so
 /usr/lib64/qt5/plugins/styles/oxygen.so
