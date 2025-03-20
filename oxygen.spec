@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : oxygen
-Version  : 6.3.2
-Release  : 22
-URL      : https://download.kde.org/stable/plasma/6.3.2/oxygen-6.3.2.tar.xz
-Source0  : https://download.kde.org/stable/plasma/6.3.2/oxygen-6.3.2.tar.xz
-Source1  : https://download.kde.org/stable/plasma/6.3.2/oxygen-6.3.2.tar.xz.sig
+Version  : 6.3.3
+Release  : 23
+URL      : https://download.kde.org/stable/plasma/6.3.3/oxygen-6.3.3.tar.xz
+Source0  : https://download.kde.org/stable/plasma/6.3.3/oxygen-6.3.3.tar.xz
+Source1  : https://download.kde.org/stable/plasma/6.3.3/oxygen-6.3.3.tar.xz.sig
 Source2  : D7574483BB57B18D.pkey
 Summary  : No detailed summary available
 Group    : Development/Tools
@@ -49,7 +49,11 @@ BuildRequires : xcb-util-wm-dev
 %define debug_package %{nil}
 
 %description
-oxygen-style-animated is a branch of trunk/KDE/kdebase/runtime/kstyles/oxygen that introduces smooth animations for the Oxygen widget style.
+How to generate all the pngs and the SVGs and the cursor files:
+mkdir build
+cd build
+cmake ../src
+make [-j <n>] [theme-<color>|package-<color>]
 
 %package bin
 Summary: bin components for the oxygen package.
@@ -101,10 +105,10 @@ chmod 700 .gnupg
 gpg --homedir .gnupg --import %{SOURCE2}
 gpg --homedir .gnupg --status-fd 1 --verify %{SOURCE1} %{SOURCE0} > gpg.status
 grep -E '^\[GNUPG:\] (GOODSIG|EXPKEYSIG) D7574483BB57B18D' gpg.status
-%setup -q -n oxygen-6.3.2
-cd %{_builddir}/oxygen-6.3.2
+%setup -q -n oxygen-6.3.3
+cd %{_builddir}/oxygen-6.3.3
 pushd ..
-cp -a oxygen-6.3.2 buildavx2
+cp -a oxygen-6.3.3 buildavx2
 popd
 
 %build
@@ -112,7 +116,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1740703179
+export SOURCE_DATE_EPOCH=1742486628
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -175,7 +179,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1740703179
+export SOURCE_DATE_EPOCH=1742486628
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/oxygen
 cp %{_builddir}/oxygen-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/oxygen/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -763,16 +767,16 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/liboxygenstyle6.so.6.3.2
-/V3/usr/lib64/liboxygenstyleconfig6.so.6.3.2
+/V3/usr/lib64/liboxygenstyle6.so.6.3.3
+/V3/usr/lib64/liboxygenstyleconfig6.so.6.3.3
 /V3/usr/lib64/qt6/plugins/kstyle_config/kstyle_oxygen_config.so
 /V3/usr/lib64/qt6/plugins/org.kde.kdecoration3.kcm/kcm_oxygendecoration.so
 /V3/usr/lib64/qt6/plugins/org.kde.kdecoration3/org.kde.oxygen.so
 /V3/usr/lib64/qt6/plugins/styles/oxygen6.so
 /usr/lib64/liboxygenstyle6.so.6
-/usr/lib64/liboxygenstyle6.so.6.3.2
+/usr/lib64/liboxygenstyle6.so.6.3.3
 /usr/lib64/liboxygenstyleconfig6.so.6
-/usr/lib64/liboxygenstyleconfig6.so.6.3.2
+/usr/lib64/liboxygenstyleconfig6.so.6.3.3
 /usr/lib64/qt6/plugins/kstyle_config/kstyle_oxygen_config.so
 /usr/lib64/qt6/plugins/org.kde.kdecoration3.kcm/kcm_oxygendecoration.so
 /usr/lib64/qt6/plugins/org.kde.kdecoration3/org.kde.oxygen.so
